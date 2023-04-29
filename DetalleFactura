@@ -1,0 +1,42 @@
+import java.util.Scanner;
+public class DetalleFactura {
+
+    public static void main(String[] args) {
+        // Press Alt+Intro with your caret at the highlighted text to see how
+        // IntelliJ IDEA suggests fixing it.
+        String nombreFactura= " ";
+        Double precio1=0.00, precio2=0.00;
+        Double precioFinal;
+        String descripcion;
+        Scanner scanner= new Scanner(System.in);
+        try {
+            System.out.printf("Ingresar nombre de la factura  \n");
+            nombreFactura = scanner.nextLine();
+            }
+            catch(Exception e){
+                System.out.printf("sea equivocado al ingresar el nombre \n");
+                main( args);
+                System.exit(0);
+            }
+        try{
+            System.out.printf("Ingresar precio del primer producto \n");
+            precio1= scanner.nextDouble();
+            System.out.printf("Ingresar precio del segundo producto \n");
+            precio2= scanner.nextDouble();
+        }catch(Exception e){
+            System.out.printf("debe ingresar volores double ");
+            main( args);
+            System.exit(0);
+        }
+        precioFinal= precio1+ precio2+ (precio1+ precio2)*0.19;
+        descripcion= "La factura "+ nombreFactura +" de oficina "+(precio1+precio2);
+        descripcion+= "\n tiene un total bruto " + (precio1+precio2);
+        descripcion+= "\n con un impuesto de " + ((precio1+precio2)*0.19);
+        descripcion+= "\n y el monto después de impuesto es "+ precioFinal;
+        System.out.println(descripcion);
+
+
+
+        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
+
+    }
